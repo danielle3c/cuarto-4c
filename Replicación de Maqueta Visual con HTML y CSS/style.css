@@ -9,7 +9,7 @@ body {
 /* Encabezado */
 header {
     display: flex;
-    justify-content:baseline;
+    justify-content: baseline;
     padding: 1px;
     height: 50px;
     background-color: #ffffff;
@@ -18,20 +18,19 @@ header {
 /* Contenedor principal */
 .contenedor {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 500px;
-    padding: 50px;
-    background: linear-gradient(to right, #fff 50%, #00cbbf 50%);
+    justify-content: flex-start;
+    height: 100vh; /* Altura completa de la pantalla */
 }
 
 /* Lado izquierdo (Formulario) */
 .lado_izquierdo {
-    width: 35%;
+    width: 50%; /* Ajustado para que ocupe el 50% */
     padding: 30px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 100vh; /* Mantiene la altura igual al lado derecho */
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es largo */
 }
 
 .lado_izquierdo h2 {
@@ -95,10 +94,9 @@ input {
 
 /* Ajusta el tamaño de la imagen de la huella */
 .huella img {
-    width: 24px; /* Ajusta el tamaño de la imagen a 24px, puedes cambiar este valor */
-    margin-left: 10px; /* Añade espacio entre el texto y la imagen */
+    width: 24px;
+    margin-left: 10px;
 }
-
 
 .volver {
     display: block;
@@ -107,19 +105,17 @@ input {
     color: #00cbbf;
     text-decoration: none;
 }
+
 /* Lado derecho (Información visual) */
 .lado_derecho {
-    width: 50%;
-    text-align: center;
-    color: white;
-    background-color: #00cbbf; /* Color turquesa */
-    padding: 80px 40px; /* Añadir padding lateral */
+    width: 50%; /* Ajustado para que ocupe el 50% */
+    background-color: #00cbbf; /* Color aqua */
+    padding-left: 40px; /* Espaciado de la izquierda */
+    padding-right: 40px; /* Espaciado de la derecha */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Asegura que el contenido quede alineado al principio */
+    justify-content: center; /* Asegura que el contenido esté centrado verticalmente */
     align-items: center;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
     height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
 }
 
@@ -128,30 +124,35 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Espacio entre los iconos */
 }
 
 /* Estilos de los iconos dentro de cuadros blancos */
+/* Estilos de los iconos dentro de cuadros blancos */
 .icono1, .icono2, .icono3 {
     background: white;
-    padding: 20px;
+    padding: 30px; /* Aumentado el padding para hacer los iconos más grandes */
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espaciado entre iconos */
 }
+
 
 /* Icono 2: Mueve el contenido a la izquierda */
 .icono2 {
     display: flex;
     justify-content: flex-start;
-    margin-right: 10px; /* Ajusta el margen derecho */
-    margin-left: -15px; /* Mueve el icono aún más a la izquierda */
+    margin-right: 10px;
+    margin-left: -300px; /* Mueve el icono aún más a la izquierda */
 }
 
 /* Ajustar el tamaño de la imagen */
+/* Ajustar el tamaño de la imagen de los iconos */
 .lado_derecho img {
-    width: 60px;
+    width: 76px; /* Aumentado el tamaño de las imágenes de los iconos */
+height: 76px;
 }
+
 
 /* Estilos de los textos */
 .lado_derecho h3 {
@@ -176,8 +177,3 @@ input {
     border: 2px solid white;
     font-weight: bold;
 }
-
-
-
-
-
