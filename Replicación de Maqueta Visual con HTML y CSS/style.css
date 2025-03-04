@@ -6,15 +6,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Encabezado */
-header {
-    display: flex;
-    justify-content: baseline;
-    padding: 1px;
-    height: 50px;
-    background-color: #ffffff;
-}
-
 /* Contenedor principal */
 .contenedor {
     display: flex;
@@ -24,13 +15,19 @@ header {
 
 /* Lado izquierdo (Formulario) */
 .lado_izquierdo {
-    width: 50%; /* Ajustado para que ocupe el 50% */
-    padding: 30px;
+    width: 50%; /* Ahora ocupa el 50% */
+    padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: 100vh; /* Mantiene la altura igual al lado derecho */
-    overflow-y: auto; /* Permite el desplazamiento si el contenido es largo */
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.logo {
+    width: 200px;
+    margin-left: 10px;
 }
 
 .lado_izquierdo h2 {
@@ -44,12 +41,12 @@ header {
 
 input {
     width: 100%;
-    padding: 12px;
-    margin: 5px 0;
+    padding: 3px;
+    margin: 2px 0;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    border-radius: 15px;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .password-container {
@@ -58,29 +55,30 @@ input {
 
 .toggle-password {
     position: absolute;
-    right: 10px;
-    top: 35%;
+    right: 6px;
+    top: 28%;
     cursor: pointer;
 }
 
 .forgot-password {
     display: block;
-    text-align: center;
-    margin: 10px 0;
-    color: #00cbbf;
+    text-align: left;
+    margin: 6px 0;
+    color: #5132db;
     text-decoration: none;
+    font-size: 13px;
 }
 
 .btn-ingresar, .btn-huella {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     background-color: #00cbbf;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 13px;
+    margin-top: 6px;
 }
 
 .btn-huella {
@@ -93,29 +91,32 @@ input {
 }
 
 .huella img {
-    width: 24px;
-    margin-left: 10px;
+    width: 20px;
+    margin-left: 6px;
 }
+
 
 .volver {
     display: block;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
-    color: #00cbbf;
+    color: #000000;
     text-decoration: none;
+    position: absolute;
+    bottom: 150px;
+    left: 30px;
 }
 
 /* Lado derecho (Información visual) */
 .lado_derecho {
-    width: 50%; /* Ajustado para que ocupe el 50% */
-    background-color: #00cbbf; /* Color aqua */
-    padding-left: 40px; /* Espaciado de la izquierda */
-    padding-right: 40px; /* Espaciado de la derecha */
+    width: 50%; /* Ahora ocupa el 50% */
+    background-color: #00cbbf;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Asegura que el contenido esté centrado verticalmente */
+    justify-content: center;
     align-items: center;
-    height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
+    height: 100vh;
 }
 
 /* Contenedor de los iconos */
@@ -123,9 +124,10 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Espacio entre los iconos */
+    margin-bottom: 20px;
 }
 
+/* Estilos de los iconos dentro de cuadros blancos */
 /* Estilos de los iconos dentro de cuadros blancos */
 .icono1, .icono2, .icono3 {
     background: white;
@@ -145,8 +147,8 @@ input {
 
 /* Ajustar el tamaño de la imagen de los iconos */
 .lado_derecho img {
-    width: 76px; /* Aumentado el tamaño de las imágenes de los iconos */
-    height: 76px; /* Igualando el alto de la imagen */
+    width: 76px;
+    height: 76px;
 }
 
 /* Estilos de los textos */
@@ -159,6 +161,7 @@ input {
 .lado_derecho p {
     font-size: 18px;
     max-width: 80%;
+    text-align: center;
 }
 
 /* Botón de descarga */
