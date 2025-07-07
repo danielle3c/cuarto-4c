@@ -41,27 +41,32 @@ INSERT INTO personas (rut, nombre_completo, fecha_nac, id_usuario, id_ciudad, cr
 
     
     
+    
 -- 1.-  Mostrar todos los usuarios de tipo Cliente
 -- Seleccionar nombre de usuario, correo y tipo_usuario
-SELECT u.username, u.email, t.nombre_tipo
-FROM usuarios u
-JOIN tipo_usuarios t ON u.id_tipo_usuario = t.id_tipo
-WHERE t.nombre_tipo = 'Cliente';
+SELECT username, email,
+    (SELECT nombre_tipo FROM tipo_usuarios WHERE tipo_usuarios.id_tipo = usuarios.id_tipo_usuario) AS tipo_usuario
+FROM usuarios
+WHERE id_tipo_usuario = (SELECT id_tipo FROM tipo_usuarios WHERE nombre_tipo = 'Cliente');
+
 
 -- 2.-  Mostrar Personas nacidas despues del año 1990
 -- Seleccionar Nombre, fecha de nacimiento y username.
-SELECT p.nombre_completo, p.fecha_nac, u.username
-FROM personas p
-JOIN usuarios u ON p.id_usuario = u.id_usuario
-WHERE YEAR(p.fecha_nac) > 1990;
+SELECT nombre_completo, fecha_nac,
+    (SELECT username FROM usuarios WHERE usuarios.id_usuario = personas.id_usuario) AS username
+FROM personas
+WHERE YEAR(fecha_nac) > 1990;
+
 
 
 -- 3.- Seleccionar nombres de personas que comiencen con la 
 -- letra A - Seleccionar nombre y correo la persona.
-SELECT p.nombre_completo, u.email
-FROM personas p
-JOIN usuarios u ON p.id_usuario = u.id_usuario
-WHERE p.nombre_completo LIKE 'A%';
+SELECT nombre_completo,
+    (SELECT email FROM usuarios WHERE usuarios.id_usuario = personas.id_usuario) AS email
+FROM personas
+WHERE nombre_completo LIKE 'A%';
+
+
 
 
 -- 4.- Mostrar usuarios cuyos dominios de correo sean
@@ -72,13 +77,13 @@ WHERE email LIKE '%mail.com%';
 
 
 -- 5.- Mostrar todas las personas que no viven en 
-    -- Valparaiso y su usuario + ciudad.
+ -- Valparaiso y su usuario + ciudad.
  -- select * from ciudad; -- ID 2 VALPARAISO
-SELECT p.nombre_completo, u.username, c.nombre_ciudad
-FROM personas p
-JOIN usuarios u ON p.id_usuario = u.id_usuario
-JOIN ciudad c ON p.id_ciudad = c.id_ciudad
-WHERE c.id_ciudad <> 2;
+SELECT nombre_completo,
+    (SELECT username FROM usuarios WHERE usuarios.id_usuario = personas.id_usuario) AS username,
+    (SELECT nombre_ciudad FROM ciudad WHERE ciudad.id_ciudad = personas.id_ciudad) AS ciudad
+FROM personas
+WHERE id_ciudad <> 2;
 
 
 -- 6.- Mostrar usuarios que contengan más de 7 
@@ -90,7 +95,7 @@ WHERE CHAR_LENGTH(username) > 7;
 
 -- 7.- Mostrar username de personas nacidas entre
 -- 1990 y 1995
-SELECT u.username
-FROM personas p
-JOIN usuarios u ON p.id_usuario = u.id_usuario
-WHERE YEAR(p.fecha_nac) BETWEEN 1990 AND 1995;
+SELECT 
+    (SELECT username FROM usuarios WHERE usuarios.id_usuario = personas.id_usuario) AS username
+FROM personas
+WHERE YEAR(fecha_nac) BETWEEN 1990 AND 1995;
